@@ -1,0 +1,96 @@
+/* General body styling */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Arial, sans-serif;
+    background: linear-gradient(to right, #f0f2f5, #dfe9f3);
+    color: #333;
+}
+
+/* Container for the image gallery */
+.gallery-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 24px;
+    padding: 50px 20px;
+    max-width: 1200px;
+    margin: auto;
+}
+
+/* Individual image styling */
+.gallery-item img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    border-radius: 14px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+    transition: transform 0.35s ease, box-shadow 0.35s ease;
+    cursor: pointer;
+}
+
+.gallery-item img:hover {
+    transform: scale(1.05);
+    box-shadow: 0 16px 32px rgba(0, 0, 0, 0.18);
+}
+
+/* Modal overlay */
+.modal {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background-color: rgba(0, 0, 0, 0.85);
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    animation: fadeIn 0.3s ease-in-out;
+}
+
+/* Modal image content */
+.modal-content {
+    max-width: 90%;
+    max-height: 80%;
+    border-radius: 12px;
+    box-shadow: 0 0 40px rgba(255, 255, 255, 0.2);
+    animation: zoomIn 0.3s ease;
+}
+
+/* Close button */
+.close {
+    position: absolute;
+    top: 25px;
+    right: 35px;
+    font-size: 38px;
+    color: #fff;
+    font-weight: bold;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.close:hover,
+.close:focus {
+    color: #ffbbbb;
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes zoomIn {
+    from { transform: scale(0.95); opacity: 0.8; }
+    to { transform: scale(1); opacity: 1; }
+}
+
+/* Responsive adjustment */
+@media (max-width: 600px) {
+    .gallery-item img {
+        height: 180px;
+    }
+
+    .close {
+        top: 20px;
+        right: 25px;
+        font-size: 32px;
+    }
+}
